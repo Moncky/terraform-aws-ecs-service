@@ -128,7 +128,7 @@ resource "aws_ecs_task_definition" "this" {
   task_role_arn      = var.task_iam_role
   memory             = var.task_memory
   cpu                = var.task_cpu
-  container_definitions = jsonencode([
+  container_definitions = var.container_definition_override != "" ? var.container_definition_override : jsonencode([
     {
       name              = var.service_name
       image             = var.image_name

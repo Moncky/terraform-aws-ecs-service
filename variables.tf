@@ -47,6 +47,7 @@ variable "exec_iam_policies" {
 variable "image_name" {
   description = "Name of the image to be deployed"
   type        = string
+  default     = ""
 }
 
 variable "task_cpu" {
@@ -65,6 +66,12 @@ variable "container_cpu" {
   description = "CPU Units to Allocate for the ECS task container."
   type        = number
   default     = 128
+}
+
+variable "container_definition_override" {
+  description = "JSON Document of Container Definitions"
+  type        = string
+  default     = ""
 }
 
 variable "container_memory" {
